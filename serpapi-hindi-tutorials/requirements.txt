@@ -1,0 +1,13 @@
+google-search-results
+axios
+dotenv
+flask
+express
+colorama
+click
+tabulate
+pyyaml
+requests
+winston
+jest
+nodemon

@@ -1,0 +1,41 @@
+{
+  "name": "serpapi-hindi-tutorials",
+  "version": "1.0.0",
+  "description": "Complete SerpApi tutorials in Hindi for Indian developers",
+  "main": "nodejs/src/index.js",
+  "scripts": {
+    "python:install": "cd python && pip install -r requirements.txt",
+    "python:run": "cd python && python basic_search.py",
+    "nodejs:install": "cd nodejs && npm install",
+    "nodejs:run": "cd nodejs && node src/search.js",
+    "cli:run": "cd cli-tool && python serpsearch.py",
+    "install:all": "npm run nodejs:install && npm run python:install",
+    "test": "npm run nodejs:test && npm run python:test",
+    "start": "node nodejs/src/index.js"
+  },
+  "keywords": [
+    "serpapi",
+    "hindi",
+    "tutorial",
+    "search",
+    "api",
+    "python",
+    "nodejs",
+    "cli"
+  ],
+  "author": "jitenkr2030",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "nodemon": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jitenkr2030/SerpSearch-CLI-Web-Dashboard.git"
+  }
+}
