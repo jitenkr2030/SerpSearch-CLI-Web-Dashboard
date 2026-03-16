@@ -65,24 +65,56 @@ serpsearch-platform/
 3. **Configure SerpApi**
    ```bash
    # Get your API key from https://serpapi.com/
-   # Replace "YOUR_SERPAPI_KEY" in both cli/serpsearch.py and web/app.py
+   # Set environment variable (recommended approach)
+   export SERPAPI_KEY=your_api_key_here
+   
+   # Or copy .env.example to .env and edit it
+   cp .env.example .env
+   # Edit .env file with your API key
    ```
 
 ---
 
-## 💻 CLI Tool Usage
+## 📸 Web Dashboard Screenshot
 
-### Basic Usage
-```bash
-# Search from command line
-python cli/serpsearch.py "AI startups"
+### SerpSearch Dashboard Interface
 
-# Example with Hindi query
-python cli/serpsearch.py "कृत्रिम बुद्धिमत्ता"
+```
+🔍 SerpSearch Dashboard
+CLI और Web Dashboard - Developer Tool
+
+┌─────────────────────────────────────────────────┐
+│ खोज करें / Search Google...     [ Search ]    │
+└─────────────────────────────────────────────────┘
+
+परिणाम / Results (5)
+
+┌─────────────────────────────────────────────────┐
+│ 1. Artificial Intelligence - Wikipedia        │
+│    https://en.wikipedia.org/wiki/Artificial_...│
+│    Artificial intelligence (AI) is intelligence...│
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│ 2. What is AI? - Complete Guide                │
+│    https://example.com/what-is-ai              │
+│    A comprehensive guide to understanding AI...│
+└─────────────────────────────────────────────────┘
+
+CLI Usage: python cli/serpsearch.py "your search query"
 ```
 
-### Example Output
+---
+
+## 🎬 Demo GIF
+
+### CLI Tool Demo
+
 ```
+$ python cli/serpsearch.py "AI startups"
+🚀 Starting SerpSearch CLI...
+🔍 Searching for: AI startups
+
 🔎 खोज परिणाम:
 
 1. AI startups - Wikipedia
@@ -93,92 +125,123 @@ https://example.com/what-is-ai-startups
 
 3. AI startups Tutorial for Beginners
 https://tutorial.example.com/ai-startups-beginners
+
+✅ Found 3 results
 ```
+
+### Web Dashboard Demo
+
+1. **Start the server**: `cd web && python app.py`
+2. **Open browser**: Navigate to `http://127.0.0.1:5000`
+3. **Enter search query**: Type "machine learning" and click Search
+4. **View results**: See formatted results with titles, links, and snippets
 
 ---
 
-## 🌐 Web Dashboard
+## 🌍 हिंदी में उपयोग कैसे करें (Hindi Tutorial)
 
-### Start the Web Application
+### CLI टूल चलाने के लिए:
+
 ```bash
-cd web
-python app.py
+# हिंदी में खोज करें
+python cli/serpsearch.py "कृत्रिम बुद्धिमत्ता"
+
+# आउटपुट:
+🔎 खोज परिणाम:
+
+1. कृत्रिम बुद्धिमत्ता - विकिपीडिया
+https://hi.wikipedia.org/wiki/कृत्रिम_बुद्धिमत्ता
+
+2. AI क्या है? - पूर्ण गाइड
+https://example.com/hi/what-is-ai
 ```
 
-### Access
-- **Local**: http://127.0.0.1:5000
-- **Network**: Available on your local network
+### वेब डैशबोर्ड हिंदी में:
 
-### Features
-- **Search Interface**: Clean search bar with real-time results
-- **Results Display**: Formatted results with titles, links, and snippets
-- **Bilingual UI**: Hindi/English interface elements
-- **CLI Instructions**: Built-in usage examples
+1. **सर्वर चलाएं**: `cd web && python app.py`
+2. **ब्राउज़र खोलें**: `http://127.0.0.1:5000`
+3. **हिंदी में खोजें**: "मशीन लर्निंग" टाइप करें
+4. **परिणाम देखें**: हिंदी और अंग्रेजी में खोज परिणाम
+
+### हिंदी डेवलपर्स के लिए टिप्स:
+
+- **खोज क्वेरी**: हिंदी में भी टाइप कर सकते हैं
+- **भाषा समर्थन**: `hl: "hi"` पैरामीटर का उपयोग
+- **आउटपुट**: हिंदी में संदेश और निर्देश
 
 ---
 
-## 🔌 API Integration
+## 🚀 Future Features
 
-### SerpApi Setup
-1. **Get API Key**: Register at [serpapi.com](https://serpapi.com/)
-2. **Configure**: Replace `YOUR_SERPAPI_KEY` in source files
-3. **Test**: Make a search to verify integration
+### Upcoming Improvements
 
-### Configuration Files
+- **📰 Google News Search**: Real-time news search functionality
+- **📊 Google Trends Dashboard**: Visual trends analysis
+- **🖼️ Image Search Support**: Search and display images
+- **📈 API Analytics Dashboard**: Usage statistics and analytics
+- **📚 Hindi Developer Documentation**: Comprehensive Hindi tutorials
+- **🔍 Advanced Search Filters**: Date, language, and region filters
+- **📱 Mobile Responsive Design**: Better mobile experience
+- **🔐 User Authentication**: Save search history and preferences
+- **🌍 Multi-language Support**: More Indian languages
+- **⚡ Search History**: Recent searches and favorites
+- **📤 Export Results**: PDF, CSV, and JSON export options
+- **🔗 API Rate Limiting**: Professional rate limiting
+- **🎨 Dark Mode**: Dark theme support
+- **🔍 Search Suggestions**: Auto-complete functionality
 
-#### CLI Tool (`cli/serpsearch.py`)
-```python
-from serpapi import GoogleSearch
+### Developer API Features
 
-API_KEY = "YOUR_SERPAPI_KEY"  # Replace with your key
-
-def search_google(query):
-    params = {
-        "q": query,
-        "api_key": API_KEY,
-        "hl": "hi"  # Hindi language support
-    }
-    # ... rest of the code
-```
-
-#### Web App (`web/app.py`)
-```python
-from flask import Flask, render_template, request
-from serpapi import GoogleSearch
-
-API_KEY = "YOUR_SERPAPI_KEY"  # Replace with your key
-
-def search_google(query):
-    params = {
-        "q": query,
-        "api_key": API_KEY
-    }
-    # ... rest of the code
-```
+- **📡 REST API Endpoints**: Full API for developers
+- **📖 API Documentation**: Comprehensive API docs
+- **🧪 Code Examples**: Multiple language examples
+- **🔧 SDK Development**: Python, Node.js, and Java SDKs
+- **📊 Usage Analytics**: API usage tracking
+- **🔑 API Key Management**: Secure key management
 
 ---
 
-## 🌍 Hindi Language Support
+## 💭 Developer Advocate Motivation
 
-### Features
-- **UI Labels**: Bilingual interface elements
-- **Search Results**: Hindi language search (`hl: "hi"`)
-- **CLI Output**: Localized messages
-- **Documentation**: Hindi examples
+### Why I Built This
 
-### Implementation
-```python
-# Hindi language parameter
-params = {
-    "q": query,
-    "api_key": API_KEY,
-    "hl": "hi"  # Hindi language support
-}
-```
+This project was created to demonstrate how **SerpApi can be used to build developer-friendly tools** and **localized experiences for Hindi-speaking developers**.
+
+It includes both a **CLI tool** and a **web dashboard** to show how SerpApi can power different types of developer applications:
+
+- **CLI Tool**: Shows how SerpApi integrates into developer workflows
+- **Web Dashboard**: Demonstrates web application integration
+- **Hindi Language Support**: Focus on Indian developer community
+- **Simple Code**: Easy to understand and modify
+- **Best Practices**: Environment variables, error handling, documentation
+
+### Target Audience
+
+- **Hindi-speaking developers** who want localized search tools
+- **Python developers** looking for SerpApi integration examples
+- **Web developers** building search applications
+- **Developer Advocates** creating demo projects
+- **API enthusiasts** exploring search APIs
+
+### Impact
+
+This project shows that **developer tools can be accessible** and **localized** for different communities, making technology more inclusive for Indian developers.
 
 ---
 
 ## 🛠️ Development
+
+### Environment Setup
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Edit .env with your API key
+nano .env
+
+# Set environment variable
+export SERPAPI_KEY=your_api_key_here
+```
 
 ### Running the CLI Tool
 ```bash
@@ -187,6 +250,9 @@ python cli/serpsearch.py "test query"
 
 # With Hindi query
 python cli/serpsearch.py "भारतीय तकनीक"
+
+# Check environment variable
+echo $SERPAPI_KEY
 ```
 
 ### Running the Web App
@@ -196,6 +262,11 @@ cd web
 python app.py
 
 # The app will be available at http://127.0.0.1:5000
+
+# Check if API key is set
+curl -X POST http://127.0.0.1:5000/ \
+  -H "Content-Type: application/json" \
+  -d '{"query": "test"}'
 ```
 
 ### Dependencies
@@ -205,6 +276,19 @@ pip install google-search-results flask
 
 # Or use requirements file
 pip install -r requirements.txt
+
+# Check installed packages
+pip list | grep -E "(flask|google-search-results)"
+```
+
+### Debug Mode
+```bash
+# Enable debug mode in Flask
+export FLASK_DEBUG=1
+export FLASK_ENV=development
+
+# Run with debug
+python web/app.py
 ```
 
 ---

@@ -1,7 +1,13 @@
 import sys
+import os
 from serpapi import GoogleSearch
 
-API_KEY = "YOUR_SERPAPI_KEY"
+API_KEY = os.getenv("SERPAPI_KEY")
+
+if not API_KEY:
+    print("❌ Error: SERPAPI_KEY environment variable not set!")
+    print("Please run: export SERPAPI_KEY=your_api_key_here")
+    sys.exit(1)
 
 def search_google(query):
     params = {
@@ -22,4 +28,8 @@ def search_google(query):
 
 if __name__ == "__main__":
     query = " ".join(sys.argv[1:])
+    if not query:
+        print("❌ Error: Please provide a search query")
+        print("Usage: python serpsearch.py \"your search query\"")
+        sys.exit(1)
     search_google(query)
